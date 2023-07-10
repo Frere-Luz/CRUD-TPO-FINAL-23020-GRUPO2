@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Empleados</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Splash&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="box-1">
+            <nav>
+                <div class="lista">
+                    <a href="./empleado_update.html">modificaciones</a>   
+                </div>
+            </nav>
+            <div class="centro">
+                <a id="home" href="index.html">Alta Pinta</a>
+                
+            </div>
+            <nav>
+                <div class="lista">
+                <a href="./empleado_nuevo.html">empleados<br>nuevos</a>
+                </div>
+            </nav>
+            </div>
+        <!-- place navbar here -->
+    </header>
+    <main>
+        <div id="app" class="container pt-lg-5 justify-content-center">
+            <div class="mt-lg-5 pt-lg-5">
+                <h1 class="text-center text-secondary border-bottom border-1 border-danger mt-lg-5 pt-lg-5 pb-4 fw-bold">Empleados</h1>
+                <a class="btn btn-outline-success col-1 my-lg-3 float-end" href="empleado_nuevo.html">Nuevo</a>
+                <div v-if="error">
+                    <p>Ups .... </p>
+                </div>
+                <div v-else>
+                    <section v-if="cargando">
+                        <div class="spinner-border"></div>
+                        <p> - Actualizando - </p>
+                    </section>
+                    <section v-else class="row justify-content-center align-content-center">
+                        <div class="row">
+                            <div class="card m-3 justify-content-around" style="max-width: 500px;" v-for="empleado in empleados">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img :src="empleado.imagen"
+                                            class="img-fluid rounded object-fit-cover img-thumbnail mt-1"
+                                            loading="lazy" :alt="empleado.apellido">
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="card-body text-end justify-content-around">
+                                            <h5 class="card-title fw-bold">{{empleado.nombre}}</h5>
+                                            <h5 class="card-title fw-bold">{{empleado.apellido}}</h5>
+                                            <h6 class="card-text">{{empleado.puesto}}</h6>
+                                            <p class="card-text">{{empleado.sueldo}}</p>
+                                            <p class="card-text">{{empleado.id}}</p>
+                                            <a :href="'empleado_update.html?id='+ empleado.id"
+                                                class="btn btn-outline-warning col-4">Editar</a>
+                                            <button type="button" class="btn btn-outline-danger col-4 mx-2"
+                                                v-on:click="eliminar(empleado.id)">Eliminar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script src="./JS/main.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Link de VUE-->
+    <script src="./JS/empleados.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+.text-custom {
+    color: hsl(0, 0%, 100%); /* Código de color personalizado */
+  }
+
+  .bg-custom {
+    background-color: #110903; /* Código de color personalizado */
+  }
+
+  .bg-custon {
+    background-color: goldenrod; /* Código de color personalizado */
+    border-radius: 8px;
+   padding-bottom: 10px;
+  }
+
+  .custom-input {
+    height: 30px; /* Ajusta la altura según tus preferencias */
+    margin: 10px;
+
+   
+  }
